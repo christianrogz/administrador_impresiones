@@ -1,0 +1,82 @@
+<div id="menu">	
+	<div id="titulo">
+		<h1>Administrar
+		Impresiones</h1>
+	</div>
+	<div class="opcion" id="op1">
+		<%= link_to 'Pedidos Impresos', principal_index_path %>
+	</div>
+	<div class="opcion">
+		<%= link_to 'Pedidos en Progreso', controller: 'progress' %>
+	</div>
+	<div class="opcion">
+		<%= link_to 'Pedidos Canselados', controller: 'cancel' %>
+	</div>
+	<div class="opcion">
+		<%= link_to 'Historial de Pedidos', controller: 'historial'%>
+	</div>
+</div>
+<div id="contenido">	
+	<div id="buscador">
+		<!--<table class="buscador">
+			<tr>
+				<td><input type="text" name="usuario" placeholder="Usuario"></td>
+				<td><input type="text" name="carrera" placeholder="Carrera"></td>
+				<td><input type="text" name="archivo" placeholder="Archivo"></td>
+				<td><input type="text" name="fecha" placeholder="Fecha"></td>
+				<td><input type="text" name="monto" placeholder="Monto"></td>
+				<td><input type="text" name="estado" placeholder="Estado"></td>
+				<td><input type="button" name="buscar" value="Buscar"></td>
+			</tr>
+		</table>-->
+		<input type="text" name="usuario" placeholder="Usuario" size="30">
+		<input type="text" name="carrera" placeholder="Carrera" size="1">
+		<input type="text" name="archivo" placeholder="Archivo" size="8">
+		<input type="date" name="fecha1" placeholder="Fecha Inicial" size="4">
+		<input type="date" name="fecha2" placeholder="Fecha Final" size="4">
+		<input type="text" name="monto" placeholder="Monto" size="1">
+		<input type="text" name="estado" placeholder="Estado" size="1">
+		<input type="button" name="buscar" value="Buscar" id="btn_buscar">
+	</div>	
+	<table>
+		<tr>
+			<th>Usuario</th>
+			<th>Carrera</th>
+			<th>Archivo</th>
+			<th>Fecha</th>
+			<th>Monto</th>
+			<th>Estado</th>
+			<th>Entrega</th>
+		</tr>
+		<% @registros.each do |n| %>
+			<tr>
+				<td><%= n.usuario %></td>
+				<td><%= n.carrera %></td>
+				<td><%= n.archivo %></td>
+				<td><%= n.created_at %></td>
+				<td>$<%= n.monto %></td>
+				<td><%= n.pago %></td>
+				<td><input type="button" name="entregar" value="Entregar"></td>
+			</tr>
+		<% end %>
+		<!--<tr>
+			<td>Juan Pedro</td>
+			<td>Gastronomia</td>
+			<td>Receta.pdf</td>
+			<td>25/Junio/2016 - 17:00</td>
+			<td>$3.00</td>
+			<td>Pagado</td>
+			<td><input type="button" name="entregar" value="Entregar"></td>
+		</tr>
+		<tr>
+			<td>Francisco Lopez</td>
+			<td>TIC</td>
+			<td>tutorial.pdf</td>
+			<td>25/Junio/2016 - 17:00</td>
+			<td>$15.00</td>
+			<td>Adeudo</td>
+			<td><input type="button" name="entregar" value="Entregar"></td>						
+		</tr>-->
+		
+	</table>
+</div>
