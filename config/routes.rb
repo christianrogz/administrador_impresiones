@@ -5,7 +5,13 @@ Rails.application.routes.draw do
 
   get 'progress/index'
 
-  get 'principal/index'
+  #get 'principal/index'
+
+  #get 'principal/finder'
+
+  get 'principal/index' => 'principal#index'
+
+  post 'principal/index' => 'principal#finder'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
