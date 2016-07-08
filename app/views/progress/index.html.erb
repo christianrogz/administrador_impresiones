@@ -17,7 +17,23 @@
 	</div>
 </div>
 <div id="contenido">	
-	<div id="buscador">
+
+<!--
+	<%= form_tag principal_index_path, method: :get do %>	
+		<div id="buscador">
+		  	<%= text_field_tag :usuario, params[:usuario], :size=>"30", placeholder: "Usuario" %>
+		  	<%= text_field_tag :carrera, params[:carrera], :size=>"1", placeholder: "Carrera" %>
+		  	<%= text_field_tag :archivo, params[:archivo], :size=>"8", placeholder: "Archivo" %>
+		  	<%= text_field_tag :fecha1, params[:fecha1], :size=>"4", placeholder: "Fecha Inicial" %>
+		  	<%= text_field_tag :fecha2, params[:fecha2], :size=>"4", placeholder: "Fecha Final" %>
+		  	<%= text_field_tag :monto, params[:monto], :size=>"1", placeholder: "Monto" %>
+		  	<%= text_field_tag :estado, params[:estado], :size=>"1", placeholder: "Estado" %>
+		  	<%= submit_tag "Buscar", name: nil, class: "btnFind" %>
+		  </div>	
+	<% end %>
+	-->
+
+	<div id="buscador">	
 		<input type="text" name="usuario" placeholder="Usuario" size="30">
 		<input type="text" name="carrera" placeholder="Carrera" size="1">
 		<input type="text" name="archivo" placeholder="Archivo" size="8">

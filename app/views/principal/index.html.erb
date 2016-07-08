@@ -17,56 +17,31 @@
 	</div>
 </div>
 <div id="contenido">	
+	
 	<div id="buscador">
-		<%= form_for :principal, url: principal_finder_path do |f| %>		  
-		    <%= f.text_field :usuario %>
-		    <%= f.text_field :carrera %>
-		    <%= f.submit 'Buscar' %>
+		<%= search_form_for(@search, url: "/principal/index", method: :get) do |f| %>
+			<%= f.text_field :usuario_cont, size: "30", placeholder: 'Uusario'%>
+			<%= f.text_field :carrera_cont, size:"1", placeholder: "Carrera" %>
+		  	<%= f.text_field :archivo_cont, size:"8", placeholder: "Archivo" %>
+
+		  	<%= f.text_field :fecha_gteq, size:"4", placeholder: "Fecha Inicial" %>
+		  	<%= f.text_field :fecha_lteq, size:"4", placeholder: "Fecha Final" %>
+		  	http://railscasts.com/episodes/370-ransack?language=es&view=asciicast
+		  	
+		  	<%= f.text_field :monto_cont, size:"1", placeholder: "Monto" %>
+		  	<%= f.text_field :estado_cont, size:"1", placeholder: "Estado" %>
+			<%= f.submit "Buscar" %>
 		<% end %>
-		<!--<table class="buscador">
-			<tr>
-				<td><input type="text" name="usuario" placeholder="Usuario"></td>
-				<td><input type="text" name="carrera" placeholder="Carrera"></td>
-				<td><input type="text" name="archivo" placeholder="Archivo"></td>
-				<td><input type="text" name="fecha" placeholder="Fecha"></td>
-				<td><input type="text" name="monto" placeholder="Monto"></td>
-				<td><input type="text" name="estado" placeholder="Estado"></td>
-				<td><input type="button" name="buscar" value="Buscar"></td>
-			</tr>
-		</table>-->
-		<!--<%= form_tag :action => 'finder' do %>
-			<%= text_field_tag 'usuario', @usuario %>
-			<%= text_field_tag 'carrera', @carera %>
-
-			<!--<input type="text" name="usuario" placeholder="Usuario" size="30"><% @user %>
-			<input type="text" name="carrera" placeholder="Carrera" size="1"><% @carrera %>
-			<input type="text" name="archivo" placeholder="Archivo" size="8">
-			<input type="date" name="fecha1" placeholder="Fecha Inicial" size="4">
-			<input type="date" name="fecha2" placeholder="Fecha Final" size="4">
-			<input type="text" name="monto" placeholder="Monto" size="1">
-			<input type="text" name="estado" placeholder="Estado" size="1">
-			<input type="button" name="buscar" value="Buscar" id="btn_buscar">
-			<%= submit_tag 'Buscar' %>
-		<% end %>-->		
-		
-
-		<!--<%= form_tag("finder", method: "post") do %>		  
-		  <%= text_field_tag(:usuario) %>
-		  <%= text_field_tag(:carrera) %>		  
-		  <%= text_field_tag(:archivo) %>
-		  <%= submit_tag("Buscar") %>
-		<% end %>-->
-
-
-	</div>	
+	</div>
+	
 	<table>
 		<tr>
-			<th>Usuario</th>
-			<th>Carrera</th>
-			<th>Archivo</th>
-			<th>Fecha</th>
-			<th>Monto</th>
-			<th>Estado</th>
+			<th><%= sort_link(@search, :usuario, "Usuario") %></th>
+			<th><%= sort_link(@search, :carrera, "Carrera") %></th>
+			<th><%= sort_link(@search, :archivo, "Archivo") %></th>
+			<th><%= sort_link(@search, :fecha, "Fecha") %></th>
+			<th><%= sort_link(@search, :monto, "Monto") %></th>
+			<th><%= sort_link(@search, :estado, "Estado") %></th>
 			<th>Entrega</th>
 		</tr>
 		<% @registros.each do |n| %>

@@ -43,13 +43,13 @@ body {
 	/*position: absolute;*/	
 	float: left;
 }
-#usuario {
+/*#usuario {
 	width: 30%;
 	height: auto;
 	position: absolute;
 	right: 10px;
 	text-align: right;	
-}
+}*/
 #menu {
 	background-color: #0000FF;
 	width: 100%;
